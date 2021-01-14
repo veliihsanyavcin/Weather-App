@@ -82,6 +82,7 @@ left: 50px;
 top: 279px;
 background: #FFFFFF;
 box-shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
+border-radius: 30px;
 
 h1{
 position: absolute;

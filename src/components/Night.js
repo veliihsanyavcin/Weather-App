@@ -106,6 +106,7 @@ width: 375px;
 height: 531px;
 left: 500px;
 top: -555px;
+border-radius: 30px;
 
 background: #FFFFFF;
 box-shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
