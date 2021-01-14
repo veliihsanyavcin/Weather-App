@@ -172,6 +172,5 @@ left: 19px;
 top: 375px;
 
 
-
 `;
 export default day;
