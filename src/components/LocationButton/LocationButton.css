@@ -1,0 +1,8 @@
+.LocationButton {
+  padding: 15px 18px;
+  width: 154px;
+  display: flex;
+  justify-content: space-between;
+  background: rgba(13, 159, 234, 0.08);
+  border-top-right-radius: 32px;
+}

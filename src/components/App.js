@@ -1,28 +1,15 @@
 import React from 'react';
-import Day from "./Day";
-import Night from "./Night";
-import styled from "styled-components";
-import Location from "./Location";
+import Day from './Day/Day';
 
 
 const App = () => {
   return (
-    <Container>
-      <Day />,
-      <Night />,
-      <Location />
-    </Container>
+    <div>
+      <Day />
+    </div>
 
   );
 };
-
-const Container = styled.div`
-
-`;
-
-const Wrapper = styled.div`
- 
-`;
 
 export default App;
 
