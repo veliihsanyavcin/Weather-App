@@ -8,16 +8,11 @@ import Location from "./Location";
 
 const App = () => {
   return (
-  <Container>
- <Day />,
- <Night />,
- <Location />
-  </Container>
-
-   
- 
-    
-  
+    <Container>
+      <Day />,
+      <Night />,
+      <Location />
+    </Container>
     
   );
 };
@@ -25,6 +20,7 @@ const App = () => {
 const Container = styled.div`
 
 `;
+
 const Wrapper = styled.div`
  
 `;
