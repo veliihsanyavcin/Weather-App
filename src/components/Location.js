@@ -9,7 +9,6 @@ import places from "../assets/places.png";
 import rc from "../assets/rc.png";
 
 
-
 const location = () => {
     return (
         <DayContainer>

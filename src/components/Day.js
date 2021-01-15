@@ -11,9 +11,6 @@ import row3 from "../assets/row-03.png";
 import row4 from "../assets/row-04.png";
 
 
-
-
-
 const day = () => {
     return (
 

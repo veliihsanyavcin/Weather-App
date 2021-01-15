@@ -12,8 +12,6 @@ import nrow3 from "../assets/nrow-03.png";
 import nrow4 from "../assets/nrow-04.png";
 
 
-
-
 const night = () => {
     return (
         <DayContainer>

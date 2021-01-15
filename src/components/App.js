@@ -5,7 +5,6 @@ import styled from "styled-components";
 import Location from "./Location";
 
 
-
 const App = () => {
   return (
     <Container>
@@ -13,7 +12,7 @@ const App = () => {
       <Night />,
       <Location />
     </Container>
-    
+
   );
 };
 
