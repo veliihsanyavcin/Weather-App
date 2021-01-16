@@ -1,0 +1,13 @@
+.Humidity .humidityData {
+font-size: 16px;
+line-height: 19px;
+letter-spacing: -0.05em;
+color: #444444;  
+}
+
+.Humidity .humidityText {
+font-size: 8px;
+margin-left: -5px;
+letter-spacing: 0.1em;
+color: #999999;
+}

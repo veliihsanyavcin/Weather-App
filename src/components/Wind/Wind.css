@@ -1,0 +1,15 @@
+.Wind .windData {
+  margin-left: -5px;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: -0.05em;
+  color: #444444; 
+}
+
+.Wind .windText {
+margin-left: 3px;
+font-size: 8px;
+line-height: 5px;
+letter-spacing: 0.1em;
+color: #999999;
+}

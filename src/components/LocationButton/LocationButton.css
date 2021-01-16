@@ -6,3 +6,8 @@
   background: rgba(13, 159, 234, 0.08);
   border-top-right-radius: 32px;
 }
+
+.LocationButton .locationIcon {
+  width: 14px;
+  height: 18px;
+}

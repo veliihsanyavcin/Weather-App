@@ -6,7 +6,7 @@ const LocationButton = ({ city, onClick }) => {
   return (
     <div onClick={onClick} className="LocationButton">
       <span>{city}</span>
-      <img src={locationIcon} />
+      <img className="locationIcon" src={locationIcon} />
     </div>
   );
 };

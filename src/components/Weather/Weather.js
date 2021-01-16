@@ -1,11 +1,16 @@
 import React from 'react';
 import sunnyicon from '../../assets/icons/sunnyicon.png';
 
-const Weather = ({ info }) => {
+const Weather = ({ condition }) => {
   return (
     <div className="Weather">
-      <span>{info}</span>
-      <img src={sunnyicon} className="sunnyicon" />
+      <div className="si">
+        <img src={sunnyicon} className="sunnyicon" />
+      </div>
+      <div className="tx">
+        <span className="text">{condition}</span>
+      </div>
+
     </div>
   );
 };
