@@ -1,6 +1,7 @@
 import React from 'react';
 import upVector from '../../assets/icons/UpVector.png';
 import downVector from '../../assets/icons/DownVector.png';
+import './MinMaxDegree.css';
 
 const MinMaxDegree = ({ maxDegree, minDegree }) => {
   return (

@@ -5,6 +5,7 @@
   justify-content: space-between;
   background: rgba(13, 159, 234, 0.08);
   border-top-right-radius: 32px;
+  border-bottom-left-radius: 32px;;
 }
 
 .LocationButton .locationIcon {
