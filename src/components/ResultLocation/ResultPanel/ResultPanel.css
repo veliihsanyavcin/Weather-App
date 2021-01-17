@@ -1,0 +1,76 @@
+.ResultPanel {
+  position: absolute;
+  /* width: 100%; */
+  width: 375px;
+  height: 761px;
+  top: 49px;
+  background: #FFFFFF;
+  box-shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+}
+
+.ResultPanel .header {
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  margin-top: 28px;
+}
+
+.ResultPanel .searchBar {
+  background: #F3F3F3;
+  border-radius: 4px;
+  width: 335px;
+  height: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 27px;
+  padding: 0em;
+}
+
+::-webkit-input-placeholder {
+  font-size: 18px;
+  letter-spacing: -0.05em;
+  color: #999999;
+  padding: 10px;
+}
+
+.ResultPanel .textDiv .searchText {
+  display: block;
+  margin-top: 18px;
+  margin-left: 20px;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: -0.05em;
+  color: #444444;
+}
+
+.ResultPanel .textDiv .textSearch {
+  display: block;
+  margin-top: 18px;
+  margin-left: 20px;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: -0.05em;
+  color: #444444;
+}
+
+.ResultPanel .textDiv .searchHeader {
+  display: block;
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: -0.05em;
+  color: #AAAAAA;
+  margin-left: 20px;
+  margin-top: 18px;
+}
+
+.ResultPanel .textDiv .searchDetail {
+  display: block;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: -0.05em;
+  color: #444444;
+  margin-left: 25px;
+  margin-top: 18px;
+}

@@ -1,7 +1,9 @@
 import React from 'react';
-import Day from '../components/DayWeatherForecast/Day/Day';
-import Night from './NightWeatherForecast/Night/Night';
 import './App.css';
+import Day from '../components/DayWeatherForecast/Day/Day';
+import Night from '../components/NightWeatherForecast/Night/Night';
+import Search from '../components/SearchLocation/Search/Search';
+import Result from './ResultLocation/Result/Result';
 
 
 const App = () => {
@@ -9,6 +11,8 @@ const App = () => {
     <div className="App">
       <Day />
       <Night />
+      <Search />
+      <Result />
     </div>
 
   );
