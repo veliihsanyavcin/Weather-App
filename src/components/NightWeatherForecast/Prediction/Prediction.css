@@ -1,0 +1,38 @@
+.Prediction {
+  position: absolute;
+  /* width: 100%; */
+  width: 375px;
+  height: 531px;
+  top: 279px;
+  background: #FFFFFF;
+  box-shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+}
+
+.Prediction .header {
+  display: flex;
+}
+
+.Prediction .header .CurrentDate {
+  flex: 1;
+  margin-top: 18px;
+  margin-left: 20px;
+  font-size: 14px;
+  color: #999999;
+}
+
+.Prediction .main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 45px 40px;
+}
+
+.Prediction .details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0px 20px 20px;
+}
