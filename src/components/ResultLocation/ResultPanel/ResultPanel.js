@@ -1,5 +1,6 @@
 import React from 'react';
 import './ResultPanel.css';
+import locationIcon from '../../../assets/icons/locationIcon.png';
 
 const ResultPanel = () => {
   return (
@@ -7,7 +8,10 @@ const ResultPanel = () => {
       <div className="header">
         <span>Location</span>
       </div>
-      <input className="searchBar" type="text" placeholder="Search" />
+      <div className="search">
+        <input className="searchBar" type="text" placeholder="Search" />
+        {/* <img src={locationIcon} className="locationIcon" /> */}
+      </div>
       <div className="textDiv">
         <span className="searchText">Sonuç</span>
         <span className="textSearch">İstanbul, Turkey</span>

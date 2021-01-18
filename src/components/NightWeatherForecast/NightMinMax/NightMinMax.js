@@ -3,8 +3,6 @@ import './NightMinMax.css';
 import downVector from '../../../assets/icons/DownVector.png';
 import upVector from '../../../assets/icons/UpVector.png';
 
-
-
 const NightMinMax = ({ maxDegree, minDegree}) => {
   return (
     <div className="NightMinMax">

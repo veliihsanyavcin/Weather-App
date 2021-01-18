@@ -14,7 +14,6 @@ import sunsetIcon from '../../../assets/icons/sunset.png';
 import daytimeIcon from '../../../assets/icons/daytime.png';
 import humidityIcon from '../../../assets/icons/humidity.png';
 
-
 const Forecast = () => {
   function onLocationClick() {
     alert('GÜNDÜZ AÇILDI...');
@@ -22,7 +21,7 @@ const Forecast = () => {
 
   return (
     <div className="Forecast">
-      
+
       <div className="header">
         <CurrentDate className="CurrentDate" />
         <LocationButton city="Istanbul" onClick={onLocationClick} />
@@ -44,7 +43,7 @@ const Forecast = () => {
       </div>
 
       <Slidebar />
-      
+
     </div>
   );
 };

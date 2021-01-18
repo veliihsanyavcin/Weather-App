@@ -14,7 +14,6 @@ import daytimeIcon from '../../../assets/icons/daytime.png';
 import humidityIcon from '../../../assets/icons/humidity.png';
 import Slidebar from '../Slidebar/Slidebar';
 
-
 const Prediction = () => {
   function onLocationClick() {
     alert('GECE AÇILDI..');
