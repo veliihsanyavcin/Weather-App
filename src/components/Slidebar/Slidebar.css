@@ -1,0 +1,11 @@
+.Slidebar {
+  width: 100%;
+  overflow: auto;
+}
+
+.slidebar-scroll {
+  display: flex;
+  width: 460px;
+  padding: 10px 0;
+  justify-content: space-around;
+}

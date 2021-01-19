@@ -1,14 +1,13 @@
-.PreResult {
-  display: block;
-  margin-left: 30px;
-}
 
 .PreResult .firstResult {
-  font-size: 12px;
+  font-size: 18px;
   line-height: 22px;
   letter-spacing: -0.05em;
-  color: #444444;
-  margin-top: 10px;
+  color: #44444493;
+  margin-left: 5px;
+  font-style: normal;
+  font-weight: normal;
+   
 }
 
 .PreResult .secondResult {
@@ -16,5 +15,8 @@
   line-height: 22px;
   letter-spacing: -0.05em;
   color: #444444;
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-left: 5px;
+  font-style: normal;
+  font-weight: normal;  
 }

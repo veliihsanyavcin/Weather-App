@@ -1,14 +1,14 @@
 import React from 'react';
 import './PreResult.css';
 
-const PreResult = ({ firstResult, secondResult }) => {
+const PreResult = ({ content }) => {
   return (
     <div className="PreResult">
       <div className="firstResult">
-        <span>{firstResult}</span>
+        <span>{content.cityName},{content.countryName}</span>
       </div>
       <div className="secondResult">
-        <span>{secondResult}</span>
+        <span>{content.cityName},{content.countryName}</span>
       </div>
     </div>
   );

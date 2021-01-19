@@ -1,0 +1,39 @@
+.Forecast {
+  position: absolute;
+  width: 375px;
+  /* width: 375px; */
+  height: 531px;
+  top: 279px;
+  left:0px;
+  background: #FFFFFF;
+  box-shadow: 0px -16px 40px rgba(0, 0, 0, 0.2);
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+}
+
+.Forecast .header {
+  display: flex;
+}
+
+.Forecast .header .CurrentDate {
+  flex: 1;
+  margin-top: 18px;
+  margin-left: 20px;
+  font-size: 14px;
+  color: #999999;
+}
+
+.Forecast .main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 45px 40px;
+}
+
+.Forecast .details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0px 20px 20px;
+}
