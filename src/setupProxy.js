@@ -13,7 +13,7 @@ module.exports = function (app) {
   );
 
   app.use(
-    '/api/yahoo/', 
+    '/api/owm/', 
     createProxyMiddleware({
       target: 'https://api.openweathermap.org/data/2.5',
       changeOrigin: true,

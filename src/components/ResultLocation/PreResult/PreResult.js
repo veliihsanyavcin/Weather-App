@@ -1,16 +1,16 @@
 import React from 'react';
 import './PreResult.css';
+import Search from '../../Search/Search'
 
 const PreResult = ({ content }) => {
   return (
-    <div className="PreResult">
+    <li className="PreResult">
       <div className="firstResult">
-        <span>{content.cityName},{content.countryName}</span>
+        <span>{content.city}</span>
       </div>
-      <div className="secondResult">
-        <span>{content.cityName},{content.countryName}</span>
-      </div>
-    </div>
+    
+      <br />
+    </li>
   );
 };
 

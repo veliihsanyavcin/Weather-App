@@ -1,11 +1,10 @@
 import React from 'react';
-import sunnyicon from '../../assets/icons/sunnyicon.png';
 
-const Weather = ({ condition }) => {
+const Weather = ({ icon, condition }) => {
   return (
     <div className="Weather">
       <div className="si">
-        <img src={sunnyicon} className="sunnyicon" />
+        <img src={icon} />
       </div>
       <div className="tx">
         <span className="text">{condition}</span>
@@ -14,4 +13,4 @@ const Weather = ({ condition }) => {
   );
 };
 
-export default Weather;
+export default Weather;  

@@ -15,34 +15,20 @@ import daytimeIcon from '../../assets/icons/daytime.png';
 import humidityIcon from '../../assets/icons/humidity.png';
 import { render } from '@testing-library/react';
 import Search from '../Search/Search';
+import sunnyicon from '../../assets/icons/sunnyicon.png';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'weather-icons/css/weather-icons.css';
 
-const API_key = "0839af4fdfea27e9aaca59122c092fac";
 
 
 class Forecast extends Component {
-  constructor( props ) {
+  constructor(props) {
     super(props);
     this.handleToggleVisiblity = this.handleToggleVisiblity.bind(this);
-    
+
     this.state = {
-      visiblity: false,
-      cityy: undefined
+      visiblity: false
     };
-    this.getWeather();
-
-  }
- 
-  getWeather = async () => {
-    
-    const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=London&appid=${API_key}`);
-
-    const response = await api_call.json(); 
-
-    console.log(response);
-
-    this.setState({
-      cityy: response.name
-    })
   };
 
   handleToggleVisiblity() {
@@ -53,41 +39,39 @@ class Forecast extends Component {
     });
   }
 
-
-    render () {
-      return (
+  render() {
+    return (
       <div className="Forecast">
-          {this.visiblity}
-          {this.state.visiblity && (<Search className="search" />)}
+        {this.visiblity}
+        {this.state.visiblity && (<Search className="search" />)}
         <div className="header">
           <CurrentDate className="CurrentDate" />
-          <LocationButton city={this.state.city}
-          onClick={this.handleToggleVisiblity}/>
-         <h1>{} </h1>
+          <LocationButton city={this.props.cty}
+            onClick={this.handleToggleVisiblity} />
         </div>
-  
+
         <div className="main">
-          <Weather condition="Sunny" />
-          <Degree degree={35} />
-          <MinMaxDegree className="MinMaxDegree" maxDegree={"35°C"} minDegree={"27°C"} />
+          <Weather icon={this.props.weatherIcon} condition={this.props.description} />
+          <Degree degree={this.props.temp_celsius} />
+          <MinMaxDegree className="MinMaxDegree" maxDegree={`${this.props.temp_max}°`} minDegree={`${this.props.temp_min}°`} />
         </div>
-  
+
         <div className="details">
-          <WeatherDetailBlock icon={humidityIcon} value="49%" label="Humidity" />
-          <WeatherDetailBlock icon={barometerIcon} value="1,007mBar" label="Pressure" />
-          <WeatherDetailBlock icon={windIcon} value="23km/h" label="Wind" />
-          <WeatherDetailBlock icon={sunriseIcon} value="6:03 AM" label="Sunrise" />
-          <WeatherDetailBlock icon={sunsetIcon} value="7:05 PM" label="Sunset" />
-          <WeatherDetailBlock icon={daytimeIcon} value="13h 1m" label="Daytime" />
+          <WeatherDetailBlock icon={humidityIcon} value={`${this.props.humidity}%`} label="Humidity" />
+          <WeatherDetailBlock icon={barometerIcon} value={`${this.props.pressure}mBar`} label="Pressure" />
+          <WeatherDetailBlock icon={windIcon} value={`${this.props.wind}km/h`} label="Wind" />
+          <WeatherDetailBlock icon={sunriseIcon} value={`${this.props.sunrise} AM`} label="Sunrise" />
+          <WeatherDetailBlock icon={sunsetIcon} value={`${this.props.sunset} PM`} label="Sunset" />
+          <WeatherDetailBlock icon={daytimeIcon} value={`${this.props.dayTime}`} label="Daytime" />
         </div>
-  
+
         <Slidebar />
-        
+
       </div>
-          );
-     };
-  
-  }
+    );
+  };
+
+}
 
 
 

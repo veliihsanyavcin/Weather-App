@@ -4,33 +4,43 @@ import PreResult from '../ResultLocation/PreResult/PreResult';
 import Data from './Data';
 import './Search.css';
 import placeIcon from '../../assets/icons/locationIcon.png';
+import { ThemeProvider } from 'styled-components';
+
 class Search extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       inputValue: "",
-      items: Data.items,
-      searchResults: []
+      items: [],
     };
   };
 
+
+  componentDidMount() {
+    
+  }
+
+  fetchItems(searchTerm) {
+    fetch(`/api/yahoo/resource/WeatherSearch;text=${searchTerm}`)
+      .then(res => res.json())
+      .then((data) => {
+        this.setState({ items: data })
+      })
+      .catch(console.log)
+  }
+
+
   inputHandler(e) {
-    var updatedList = this.state.items;
-
-    updatedList = updatedList.filter(function (item) {
-      return item.cityName.toLowerCase().search(e.target.value.toLowerCase()) > -1;
-    });
-
     this.setState({
-      searchResults: updatedList,
       inputValue: e.target.value
     });
+    this.fetchItems(e.target.value);
   };
 
   render() {
-    const items = this.state.searchResults.map((item) => {
-      return <PreResult content={item} searchTerm={this.state.inputValue} />;
+    const items = this.state.items.map((item) => {
+      return<PreResult content={item} searchTerm={this.state.inputValue} />;
     });
 
     return (
@@ -43,7 +53,11 @@ class Search extends Component {
           <img className="placeIcon" src={placeIcon} />
         </div>
         <div className="textDiv">
-          <span className="searchText">{this.state.inputValue.length > 2 ? items : "Please enter at least 3 letters to make  a search."}</span>
+          <div className="searchText">
+            <ul>
+            {this.state.inputValue.length > 2 ? items : "Please enter at least 3 letters to make  a search."}
+            </ul>
+            </div>
         </div>
       </div>
     );

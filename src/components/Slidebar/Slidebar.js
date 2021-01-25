@@ -14,6 +14,10 @@ const Slidebar = () => {
         <WeatherDetailBlock icon={daycloudyIcon} value="Tue, 22" label={<DayMinMax minDegree="35" maxDegree="27" />} hasShadow />
         <WeatherDetailBlock icon={dayhazyIcon} value="Wed, 23" label={<DayMinMax minDegree="34" maxDegree="29" />} hasShadow />
         <WeatherDetailBlock icon={dayhazyIcon} value="Thu, 24" label={<DayMinMax minDegree="33" maxDegree="27" />} hasShadow />
+        <WeatherDetailBlock icon={daycloudyIcon} value="Tue, 22" label={<DayMinMax minDegree="35" maxDegree="27" />} hasShadow />
+        <WeatherDetailBlock icon={dayhazyIcon} value="Wed, 23" label={<DayMinMax minDegree="34" maxDegree="29" />} hasShadow />
+        <WeatherDetailBlock icon={dayhazyIcon} value="Thu, 24" label={<DayMinMax minDegree="33" maxDegree="27" />} hasShadow />
+        
       </div>
     </div>
   )
