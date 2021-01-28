@@ -72,3 +72,7 @@ input[type=text] {
   margin-left: 35px;
   margin-right: 41px;
 }
+
+.SearchPanel .textDiv .searchText .list{
+  list-style-type: none;
+}

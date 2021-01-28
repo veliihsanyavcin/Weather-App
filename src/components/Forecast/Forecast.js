@@ -13,13 +13,10 @@ import sunriseIcon from '../../assets/icons/sunrise.png';
 import sunsetIcon from '../../assets/icons/sunset.png';
 import daytimeIcon from '../../assets/icons/daytime.png';
 import humidityIcon from '../../assets/icons/humidity.png';
-import { render } from '@testing-library/react';
 import Search from '../Search/Search';
-import sunnyicon from '../../assets/icons/sunnyicon.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'weather-icons/css/weather-icons.css';
-
-
+import '../Day/Day';
 
 class Forecast extends Component {
   constructor(props) {
@@ -27,23 +24,23 @@ class Forecast extends Component {
     this.handleToggleVisiblity = this.handleToggleVisiblity.bind(this);
 
     this.state = {
-      visiblity: false
+      visiblity: false,
     };
   };
 
   handleToggleVisiblity() {
     this.setState((prevState) => {
       return {
-        visiblity: !prevState.visiblity
+        visiblity: !prevState.visiblity,
       };
     });
-  }
+  };
 
   render() {
     return (
       <div className="Forecast">
         {this.visiblity}
-        {this.state.visiblity && (<Search className="search" />)}
+        {this.state.visiblity && (<Search  />)}
         <div className="header">
           <CurrentDate className="CurrentDate" />
           <LocationButton city={this.props.cty}
@@ -53,7 +50,7 @@ class Forecast extends Component {
         <div className="main">
           <Weather icon={this.props.weatherIcon} condition={this.props.description} />
           <Degree degree={this.props.temp_celsius} />
-          <MinMaxDegree className="MinMaxDegree" maxDegree={`${this.props.temp_max}°`} minDegree={`${this.props.temp_min}°`} />
+          <MinMaxDegree className="MinMaxDegree" maxDegree={`${this.props.tempMax}°`} minDegree={`${this.props.tempMin}°`} />
         </div>
 
         <div className="details">
@@ -65,7 +62,7 @@ class Forecast extends Component {
           <WeatherDetailBlock icon={daytimeIcon} value={`${this.props.dayTime}`} label="Daytime" />
         </div>
 
-        <Slidebar />
+        <Slidebar weatherIcon={this.props.weatherIcon} daily={this.props.daily} />
 
       </div>
     );

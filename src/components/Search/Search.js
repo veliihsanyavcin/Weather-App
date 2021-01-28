@@ -1,10 +1,8 @@
-import { render } from '@testing-library/react';
 import React, { Component } from 'react';
 import PreResult from '../ResultLocation/PreResult/PreResult';
-import Data from './Data';
 import './Search.css';
 import placeIcon from '../../assets/icons/locationIcon.png';
-import { ThemeProvider } from 'styled-components';
+import Day from '../Day/Day';
 
 class Search extends Component {
   constructor(props) {
@@ -16,11 +14,6 @@ class Search extends Component {
     };
   };
 
-
-  componentDidMount() {
-    
-  }
-
   fetchItems(searchTerm) {
     fetch(`/api/yahoo/resource/WeatherSearch;text=${searchTerm}`)
       .then(res => res.json())
@@ -29,7 +22,6 @@ class Search extends Component {
       })
       .catch(console.log)
   }
-
 
   inputHandler(e) {
     this.setState({
@@ -45,6 +37,8 @@ class Search extends Component {
 
     return (
       <div className="SearchPanel">
+         {/* {this.visiblity}
+        {this.state.visiblity && (<Day  />)} */}
         <div className="searchHeader">
           <span>Location</span>
         </div>
@@ -54,9 +48,9 @@ class Search extends Component {
         </div>
         <div className="textDiv">
           <div className="searchText">
-            <ul>
+            <li className="list">
             {this.state.inputValue.length > 2 ? items : "Please enter at least 3 letters to make  a search."}
-            </ul>
+            </li>
             </div>
         </div>
       </div>

@@ -3,6 +3,12 @@ import Forecast from '../Forecast/Forecast';
 import Background from '../Background/Background';
 import React, { Component } from 'react'
 import cloudsIcon from '../../assets/icons/cloudy.png';
+import clearIcon from '../../assets/icons/clear.png';
+import atmosphereIcon from '../../assets/icons/atmosphere.png';
+import drizzleIcon from '../../assets/icons/drizzle.png';
+import rainIcon from '../../assets/icons/rain.png';
+import snowIcon from '../../assets/icons/snow.png';
+import thunderstormIcon from '../../assets/icons/thunderstorm.png';
 
 const API_KEY = "0839af4fdfea27e9aaca59122c092fac";
 
@@ -14,8 +20,8 @@ class Day extends Component {
       cty: undefined,
       country: undefined,
       celsius: undefined,
-      temp_max: undefined,
-      temp_min: undefined,
+      tempMax: undefined,
+      tempMin: undefined,
       humidity: undefined,
       pressure: undefined,
       wind: undefined,
@@ -25,8 +31,8 @@ class Day extends Component {
       main: undefined,
       description: "",
       icon: undefined,
-      error: false
-
+      error: false,
+      daily: null
     };
 
     this.getWeather();
@@ -43,80 +49,89 @@ class Day extends Component {
     const minutes = "0" + date.getMinutes();
     const formattedTime = hours + ':' + minutes.substr(-2);
     return formattedTime;
-
   }
 
-  calDaytime(){
-    
+  calDayTime(dayTotime) {
+    var a = new Date(dayTotime * 1000);
+    var hour = a.getHours();
+    var min = a.getMinutes();
+    var time = hour + 'h ' + min + 'm';
+    return time;
   }
 
-  get_WeatherIcon(rangeId) {
+
+  getWeatherIcon(rangeId) {
     switch (true) {
       // Thunderstorm
       case rangeId >= 200 && rangeId < 300:
-        this.setState({ icon: null });
+        this.setState({ icon: thunderstormIcon });
         break;
       // Drizzle  
       case rangeId >= 300 && rangeId < 400:
-        this.setState({ icon: null });
+        this.setState({ icon: drizzleIcon });
         break;
       // Rainy
       case rangeId >= 500 && rangeId < 600:
-        this.setState({ icon: cloudsIcon });
+        this.setState({ icon: rainIcon });
         break;
       // Snow  
       case rangeId >= 600 && rangeId <= 622:
-        this.setState({ icon: null });
+        this.setState({ icon: snowIcon });
         break;
       // Atmosphere  
       case rangeId >= 701 && rangeId <= 781:
-        this.setState({ icon: null });
+        this.setState({ icon: atmosphereIcon });
         break;
       // Clear  
       case rangeId === 800:
-        this.setState({ icon: null });
+        this.setState({ icon: clearIcon });
         break;
       // Clouds  
       case rangeId >= 801 && rangeId <= 804:
-        this.setState({ icon: cloudsIcon});
+        this.setState({ icon: cloudsIcon });
         break;
       default:
-        this.setState({ icon: null });
+        this.setState({ icon: cloudsIcon });
     };
   };
 
   getWeather = async () => {
     const api_call = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=41.015137&lon=28.979530&appid=${API_KEY}`);
+    // const api_call = await fetch(`https://api.openweathermap.org/data/2.5/forecast/daily?q=Istanbul&mode=xml&units=metric&cnt=7&appid=${API_KEY}`);
     const response = await api_call.json();
 
     console.log(response);
+    console.log((this.state.daytime) * 1000);
+
 
     this.setState({
       cty: response.timezone,
       celsius: this.calCelsius(response.current.temp),
-      temp_max: this.calCelsius(response.current.temp.max),
-      temp_min: this.calCelsius(response.current.temp.min),
+      tempMax: this.calCelsius(response.daily[0].temp.max),
+      tempMin: this.calCelsius(response.daily[0].temp.min),
       humidity: response.current.humidity,
-      pressure: ((response.current.pressure)/1000).toFixed(3),
+      pressure: ((response.current.pressure) / 1000).toFixed(3),
       wind: response.current.wind_speed,
       sunrise: this.calSunrise(response.current.sunrise),
       sunset: this.calSunrise(response.current.sunset),
+      sunsetBg: response.current.sunset,
       description: response.current.weather[0].main,
-      daytime:(this.calSunrise(response.current.sunset)-this.calSunrise(response.current.sunrise))
+      daytime: this.calDayTime((response.current.sunset) - (response.current.sunrise)),
+      daily: response.daily
     });
 
-    this.get_WeatherIcon(response.current.weather[0].id);
+    this.getWeatherIcon(response.current.weather[0].id);
   };
 
   render() {
     return (
       <div className="Day">
-        <Background night={true} />
+        <Background sunset={this.state.sunsetBg} />
         <Forecast
           cty={this.state.cty}
           temp_celsius={this.state.celsius}
-          temp_max={this.state.temp_max}
-          temp_min={this.state.temp_min}
+          tempMax={this.state.tempMax}
+          tempMin={this.state.tempMin}
           humidity={this.state.humidity}
           pressure={this.state.pressure}
           wind={this.state.wind}
@@ -125,7 +140,8 @@ class Day extends Component {
           description={this.state.description}
           weatherIcon={this.state.icon}
           dayTime={this.state.daytime}
-           />
+          daily={this.state.daily}
+        />
       </div>
     );
   };
