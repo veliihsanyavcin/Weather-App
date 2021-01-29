@@ -30,14 +30,36 @@ class Search extends Component {
     this.fetchItems(e.target.value);
   };
 
-  render() {
-    const items = this.state.items.map((item) => {
-      return<PreResult content={item} searchTerm={this.state.inputValue} />;
-    });
 
+  shortingCity = (items) => {
+  
+    items.sort((a, b) => a.city.localeCompare(b.city, 'es', { sensitivity: 'base' }))
+    
+    let data = items.reduce((r, e) => {
+
+      // mevcut elemanın adının ilk harfini al
+      let alphabet = e.city[0];
+      
+      // sıralamada özellik yoksa bu harfle oluşturun
+      if (!r[alphabet]) r[alphabet] = { alphabet, record: [e] }
+
+      // o harf için alt diziye eleman verme
+      else r[alphabet].record.push(e);
+
+      return r;
+    }, {});
+
+    let result = Object.values(data);
+    return result;
+  }
+
+
+  render() {
+    const sortedList = this.shortingCity(this.state.items);
+    console.log(sortedList);
     return (
       <div className="SearchPanel">
-         {/* {this.visiblity}
+        {/* {this.visiblity}
         {this.state.visiblity && (<Day  />)} */}
         <div className="searchHeader">
           <span>Location</span>
@@ -48,10 +70,14 @@ class Search extends Component {
         </div>
         <div className="textDiv">
           <div className="searchText">
-            <li className="list">
-            {this.state.inputValue.length > 2 ? items : "Please enter at least 3 letters to make  a search."}
-            </li>
+            <div className="list">
+              {this.state.inputValue.length > 2 ? this.state.items.map((item) => {
+                return <PreResult content={item} searchTerm={this.state.inputValue} onItemSelected={this.props.onItemSelected} />;
+              }) : (
+                  <span className="Please">Please enter at least 3 letters to make  a search.</span>
+                )}
             </div>
+          </div>
         </div>
       </div>
     );

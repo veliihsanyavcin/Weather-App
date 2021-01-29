@@ -3,39 +3,32 @@ import './PreResult.css';
 import Search from '../../Search/Search'
 import Day from '../../Day/Day';
 
-
-
 class PreResult extends Component {
-  constructor(props) {
-    super(props);
-    this.handleToggle = this.handleToggle.bind(this);
-
-    this.state = {
-      visiblity: false,
-    };
+  state = {
+    visiblity: false,
   };
 
-  handleToggle() {
-    this.setState((prevState) => {
-      return {
-        visiblity: !prevState.visiblity,
-      };
-    });
-  };
+  handleClick = (e) => {
+    this.props.onItemSelected(this.props.content);
+    this.setState({
+      visiblity: !this.state.visiblity
+    })
+  }
 
   render() {
-   
     return (
-      <ul className="PreResult" onClick={this.handleToggle}>
+      <li className="PreResult" onClick={this.handleClick}>
         <div className="firstResult">
-          <span>{this.props.content.city},{this.props.content.country}</span>
+          <span>{this.props.content.city}, {this.props.content.country}</span>
+          {/* {console.log(this.props.shortedList.record["0"].city)} */}
+         
         </div>
         <div className="secondResult">
 
         </div>
         <div className="allTesult">
         </div>
-      </ul>
+      </li>
     );
   };
 };

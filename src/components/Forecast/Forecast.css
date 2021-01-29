@@ -30,7 +30,15 @@
   padding: 20px 45px 40px;
 }
 
-.Forecast .details {
+.Forecast .detailsOne {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0px 20px 20px;
+}
+
+.Forecast .detailsTwo {
   display: flex;
   justify-content: space-between;
   align-items: center;

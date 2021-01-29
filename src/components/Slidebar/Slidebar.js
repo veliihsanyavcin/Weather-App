@@ -25,7 +25,6 @@ const toCelsius = (temp) =>{
 }
 
 const getWeatherIcon = (rangeId) =>{
-  console.log(rangeId);
   switch (true) {
     // Thunderstorm
     case rangeId >= 200 && rangeId < 300:
@@ -61,7 +60,6 @@ const getWeatherIcon = (rangeId) =>{
 };
 
 const Slidebar = (props) => {
-  console.log(props.weatherIcon);
   if(props.daily)
   {
     let arr = Object.keys(props.daily).map((k) => props.daily[k]);
@@ -73,7 +71,7 @@ const Slidebar = (props) => {
       </div>
     );
   }else{
-    return(<p>Yükleniyor..</p>)
+    return(<p>Veri Yükleniyor..</p>)
   }
 };    
 

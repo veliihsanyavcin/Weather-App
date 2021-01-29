@@ -17,7 +17,9 @@ class Day extends Component {
     super(props)
 
     this.state = {
-      cty: undefined,
+      cty: 'Istanbul',
+      lat: 41.015137,
+      long: 28.979530,
       country: undefined,
       celsius: undefined,
       tempMax: undefined,
@@ -96,16 +98,11 @@ class Day extends Component {
   };
 
   getWeather = async () => {
-    const api_call = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=41.015137&lon=28.979530&appid=${API_KEY}`);
-    // const api_call = await fetch(`https://api.openweathermap.org/data/2.5/forecast/daily?q=Istanbul&mode=xml&units=metric&cnt=7&appid=${API_KEY}`);
+    const api_call = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.lat}&lon=${this.state.long}&appid=${API_KEY}`);
     const response = await api_call.json();
-
-    console.log(response);
-    console.log((this.state.daytime) * 1000);
 
 
     this.setState({
-      cty: response.timezone,
       celsius: this.calCelsius(response.current.temp),
       tempMax: this.calCelsius(response.daily[0].temp.max),
       tempMin: this.calCelsius(response.daily[0].temp.min),
@@ -123,11 +120,20 @@ class Day extends Component {
     this.getWeatherIcon(response.current.weather[0].id);
   };
 
+  handleCityChange = (res) => {
+    this.setState({
+      cty: res.city,
+      lat: res.lat,
+      long: res.lon
+    }, () => this.getWeather());
+  }
+
   render() {
     return (
       <div className="Day">
         <Background sunset={this.state.sunsetBg} />
         <Forecast
+          onCityChanged={this.handleCityChange}
           cty={this.state.cty}
           temp_celsius={this.state.celsius}
           tempMax={this.state.tempMax}

@@ -36,11 +36,17 @@ class Forecast extends Component {
     });
   };
 
+  handleCityChange = (res) => {
+    this.setState({ visiblity: false });
+    this.props.onCityChanged(res);
+  }
+
   render() {
     return (
       <div className="Forecast">
         {this.visiblity}
-        {this.state.visiblity && (<Search  />)}
+        {this.state.visiblity && (<Search onItemSelected={this.handleCityChange} visiblity={this.state.visiblity} />)}
+
         <div className="header">
           <CurrentDate className="CurrentDate" />
           <LocationButton city={this.props.cty}
@@ -53,10 +59,13 @@ class Forecast extends Component {
           <MinMaxDegree className="MinMaxDegree" maxDegree={`${this.props.tempMax}°`} minDegree={`${this.props.tempMin}°`} />
         </div>
 
-        <div className="details">
+        <div className="detailsOne">
           <WeatherDetailBlock icon={humidityIcon} value={`${this.props.humidity}%`} label="Humidity" />
           <WeatherDetailBlock icon={barometerIcon} value={`${this.props.pressure}mBar`} label="Pressure" />
           <WeatherDetailBlock icon={windIcon} value={`${this.props.wind}km/h`} label="Wind" />
+        </div>
+
+        <div className="detailsTwo">
           <WeatherDetailBlock icon={sunriseIcon} value={`${this.props.sunrise} AM`} label="Sunrise" />
           <WeatherDetailBlock icon={sunsetIcon} value={`${this.props.sunset} PM`} label="Sunset" />
           <WeatherDetailBlock icon={daytimeIcon} value={`${this.props.dayTime}`} label="Daytime" />
@@ -69,7 +78,5 @@ class Forecast extends Component {
   };
 
 }
-
-
 
 export default Forecast;
