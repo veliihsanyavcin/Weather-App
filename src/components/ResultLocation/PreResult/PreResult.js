@@ -19,15 +19,18 @@ class PreResult extends Component {
     return (
       <li className="PreResult" onClick={this.handleClick}>
         <div className="firstResult">
-          <span>{this.props.content.city}, {this.props.content.country}</span>
-          {/* {console.log(this.props.shortedList.record["0"].city)} */}
-         
+          {/* <span>{this.props.content.city}, {this.props.content.country}</span> */}
+          {/* {console.log(this.state.shortedList.record["0"].city)} */}
+         <h2>{this.props.content.harf}</h2>
+         {this.props.content.cities.map(city=>{
+       return(<p>{city.city}</p>);
+     })}
         </div>
-        <div className="secondResult">
+        {/* <div className="secondResult">
 
         </div>
         <div className="allTesult">
-        </div>
+        </div> */}
       </li>
     );
   };
