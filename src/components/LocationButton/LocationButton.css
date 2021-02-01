@@ -5,10 +5,17 @@
   justify-content: space-between;
   background: rgba(13, 159, 234, 0.08);
   border-top-right-radius: 32px;
-  border-bottom-left-radius: 32px;;
+  border-bottom-left-radius: 32px;
+  
 }
 
 .LocationButton .locationIcon {
-  width: 14px;
-  height: 18px;
+  width: 8.27px;
+  height: 12px;
+  margin-top: 5px;
+}
+
+.LocationButton .cityName {
+color: rgba(13, 160, 234, 1);
+
 }

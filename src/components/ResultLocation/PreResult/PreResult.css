@@ -1,5 +1,5 @@
 
-.PreResult .firstResult {
+.PreResult .allResult {
   font-size: 18px;
   line-height: 22px;
   letter-spacing: -0.05em;
@@ -10,13 +10,40 @@
    
 }
 
-.PreResult .secondResult {
-  font-size: 18px;
-  line-height: 22px;
-  letter-spacing: -0.05em;
-  color: #444444;
-  margin-top: 20px;
-  margin-left: 5px;
+.PreResult .allResult .subResult {
+  margin-top: 18px;
+}
+
+.PreResult .allResult .basHarf {
+  width: 25px;
+  height: 48px;
+  left: 34px;
+  top: 241px;
+  font-family: Barlow;
   font-style: normal;
-  font-weight: normal;  
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: -0.05em;
+  color: #AAAAAA;
+   
+}
+
+.PreResult .firstResult {
+width: 81px;
+height: 22px;
+left: 35px;
+top: 161px;
+
+font-family: Barlow;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 22px;
+/* identical to box height */
+
+letter-spacing: -0.05em;
+
+color: #444444;
+
 }

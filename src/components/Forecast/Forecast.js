@@ -49,20 +49,20 @@ class Forecast extends Component {
 
         <div className="header">
           <CurrentDate className="CurrentDate" />
-          <LocationButton city={this.props.cty}
+          <LocationButton city={this.props.city}
             onClick={this.handleToggleVisiblity} />
         </div>
 
         <div className="main">
           <Weather icon={this.props.weatherIcon} condition={this.props.description} />
           <Degree degree={this.props.temp_celsius} />
-          <MinMaxDegree className="MinMaxDegree" maxDegree={`${this.props.tempMax}°`} minDegree={`${this.props.tempMin}°`} />
+          <MinMaxDegree className="MinMaxDegree" maxDegree={`${this.props.tempMax}°C`} minDegree={`${this.props.tempMin}°C`} />
         </div>
 
         <div className="detailsOne">
           <WeatherDetailBlock icon={humidityIcon} value={`${this.props.humidity}%`} label="Humidity" />
           <WeatherDetailBlock icon={barometerIcon} value={`${this.props.pressure}mBar`} label="Pressure" />
-          <WeatherDetailBlock icon={windIcon} value={`${this.props.wind}km/h`} label="Wind" />
+          <WeatherDetailBlock icon={windIcon} value={`${this.props.wind} km/h`} label="Wind" />
         </div>
 
         <div className="detailsTwo">

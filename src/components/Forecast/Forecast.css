@@ -1,6 +1,6 @@
 .Forecast {
   position: absolute;
-  width: 375px;
+  width: 100vw;
   /* width: 375px; */
   height: 531px;
   top: 279px;
@@ -16,12 +16,18 @@
 }
 
 .Forecast .header .CurrentDate {
-  flex: 1;
-  margin-top: 18px;
-  margin-left: 20px;
-  font-size: 14px;
-  color: #999999;
+flex: 1;
+margin-top: 18px;
+margin-left: 20px;
+font-size: 14px;
+color: #999999;
+font-family: Barlow;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 17px;
 }
+
 
 .Forecast .main {
   display: flex;
@@ -44,4 +50,14 @@
   align-items: center;
   flex-wrap: wrap;
   padding: 0px 20px 20px;
+}
+
+.Forecast .main .MinMaxDegree {
+
+  font-family: Barlow;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  color: #666666;
 }

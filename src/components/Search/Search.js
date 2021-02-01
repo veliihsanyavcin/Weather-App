@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PreResult from '../ResultLocation/PreResult/PreResult';
 import './Search.css';
-import placeIcon from '../../assets/icons/locationIcon.png';
+import placeIcon from '../../assets/icons/licon2.svg';
 import Day from '../Day/Day';
 
 class Search extends Component {
@@ -51,9 +51,9 @@ class Search extends Component {
     let result = Object.values(data);
     return result;
   }
+
   handleCity(items){
     const list=[];
-    //console.log(items);
     items.forEach(element => {
       const harf=element.city[0];
       const result = list.filter(item=>item.harf===harf)[0];
@@ -64,22 +64,18 @@ class Search extends Component {
         data.cities.push(element);
         list.push(data);
       }
-     
     });
 
    return list;
   }
 
   render() {
-    // const sortedList = this.shortingCity(this.state.items);
-    // console.log(sortedList);
-    // console.log(this.state.items)
     const sortedList = this.shortingCity(this.state.items);
     const results=this.handleCity(this.state.items);
+    console.log(results);
     return (
+      
       <div className="SearchPanel">
-        {/* {this.visiblity}
-        {this.state.visiblity && (<Day  />)} */}
         <div className="searchHeader">
           <span>Location</span>
         </div>
@@ -90,11 +86,11 @@ class Search extends Component {
         <div className="textDiv">
           <div className="searchText">
             <div className="list">
-              {this.state.inputValue.length > 2 ? results.map((item) => {
-                return <PreResult content={item} sortedList={sortedList} searchTerm={this.state.inputValue} onItemSelected={this.props.onItemSelected} />;
-              }) : (
-                  <span className="Please">Please enter at least 3 letters to make  a search.</span>
-                )}
+              {this.state.inputValue.length > 2 ? results.map((item) => (
+                <PreResult content={item} sortedList={sortedList} searchTerm={this.state.inputValue} onItemSelected={this.props.onItemSelected} />
+              )) : (
+                <span className="Please">Please enter at least 3 letters to make  a search.</span>
+              )}
             </div>
           </div>
         </div>

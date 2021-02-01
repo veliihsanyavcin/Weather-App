@@ -1,8 +1,9 @@
 .Background {
   left: 0px;
   position: absolute;
+  width: 100vw;
 }
 .Background .bg {
- width: 100%;
+ width: 100vw;
  left:0px;
 }
