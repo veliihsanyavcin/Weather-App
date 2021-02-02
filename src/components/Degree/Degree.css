@@ -1,15 +1,15 @@
 .temperature {
   width: 62px;
-    height: 77px;
-    left: 156px;
-    top: 351px;
-    font-family: Barlow;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 64px;
-    line-height: 77px;
-    letter-spacing: -0.05em;
-    color: #000000;
+  height: 77px;
+  left: 156px;
+  top: 351px;
+  font-family: Barlow;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 64px;
+  line-height: 77px;
+  letter-spacing: -0.05em;
+  color: #000000;
 }
 
 .centigrade {

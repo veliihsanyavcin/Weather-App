@@ -40,11 +40,13 @@ class Day extends Component {
     this.getWeather();
   };
 
+  // Temp to Degree
   calCelsius(temp) {
     const cell = Math.floor(temp - 273.15);
     return cell;
   };
 
+  // Timestamp to time for sunrise,sunset
   calSunrise(sunTime) {
     const date = new Date(sunTime * 1000);
     const hours = date.getHours();
@@ -53,6 +55,7 @@ class Day extends Component {
     return formattedTime;
   }
 
+  // Timestamp to time for daytime
   calDayTime(dayTotime) {
     var a = new Date(dayTotime * 1000);
     var hour = a.getHours();
@@ -61,7 +64,7 @@ class Day extends Component {
     return time;
   }
 
-
+  // İd göre icon değişimi
   getWeatherIcon(rangeId) {
     switch (true) {
       // Thunderstorm
@@ -97,6 +100,7 @@ class Day extends Component {
     };
   };
 
+  // Weather bilgilerini getirme
   getWeather = async () => {
     const api_call = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.lat}&lon=${this.state.lon}&appid=${API_KEY}`);
     const response = await api_call.json();
@@ -118,6 +122,7 @@ class Day extends Component {
     this.getWeatherIcon(response.current.weather[0].id);
   };
 
+  // Seçilen şehirin güncellenmesi
   handleCityChange = (res) => {
     this.setState({
       city: res.city,

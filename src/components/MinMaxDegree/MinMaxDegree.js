@@ -7,10 +7,10 @@ const MinMaxDegree = ({ maxDegree, minDegree }) => {
   return (
     <div className="MinMaxDegree">
       <div className="maxDegree">
-        <span>{maxDegree} <img src={upVector} /></span>
+        <span>{maxDegree} <img src={upVector} alt="description" /></span>
       </div>
       <div className="minDegree">
-        <span>{minDegree} <img src={downVector} /></span>
+        <span>{minDegree} <img src={downVector} alt="description" /></span>
       </div>
     </div>
   );

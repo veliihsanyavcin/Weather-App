@@ -5,12 +5,13 @@ import nightBackground from '../../assets/icons/nightbackground.png';
 
 const Background = ({ sunset }) => {
   
+  // Sunset'e göre arka plan değişimi
   const night = sunset > Date.now();
   return (
 
     <div className="Background">
-      { night ? <img className="bg" src={nightBackground} /> :
-        <img className="bg" src={background} />
+      { night ? <img className="bg" src={nightBackground} alt="description" /> :
+        <img className="bg" src={background} alt="description" />
       }
     </div>
   );

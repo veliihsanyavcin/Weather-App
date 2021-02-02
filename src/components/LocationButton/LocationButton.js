@@ -2,11 +2,11 @@ import React from 'react';
 import locationIcon from '../../assets/icons/licon.svg';
 import './LocationButton.css';
 
-const LocationButton = ({ city, onClick}) => {
+const LocationButton = ({ city, onClick }) => {
   return (
     <div onClick={onClick} className="LocationButton">
       <span className="cityName">{city}</span>
-      <img className="locationIcon" src={locationIcon} />
+      <img className="locationIcon" src={locationIcon} alt="description" />
     </div>
   );
 };

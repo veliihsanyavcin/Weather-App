@@ -28,6 +28,7 @@ class Forecast extends Component {
     };
   };
 
+  // Search panelin açılması
   handleToggleVisiblity() {
     this.setState((prevState) => {
       return {
@@ -36,6 +37,7 @@ class Forecast extends Component {
     });
   };
 
+  // Şehir seçildikten sonra panelin kapanması 
   handleCityChange = (res) => {
     this.setState({ visiblity: false });
     this.props.onCityChanged(res);
@@ -76,7 +78,6 @@ class Forecast extends Component {
       </div>
     );
   };
-
 }
 
 export default Forecast;

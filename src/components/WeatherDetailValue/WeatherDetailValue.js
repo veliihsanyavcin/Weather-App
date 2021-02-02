@@ -1,7 +1,7 @@
 import React from 'react';
 import './WeatherDetailValue.css';
 
-const WeatherDetailValue = ( {children} ) => {
+const WeatherDetailValue = ({ children }) => {
   return (
     <div className="WeatherDetailValue">
       {children}

@@ -5,7 +5,7 @@ const Weather = ({ icon, condition }) => {
   return (
     <div className="Weather">
       <div className="si">
-        <img src={icon} />
+        <img src={icon} alt="description" />
       </div>
       <div className="tx">
         <span className="text">{condition}</span>

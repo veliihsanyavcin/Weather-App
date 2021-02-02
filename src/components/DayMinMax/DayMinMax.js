@@ -6,8 +6,8 @@ import downVector from '../../assets/icons/down.svg';
 const DayMinMax = ({ maxDegree, minDegree }) => {
   return (
     <div className="DayMinMax">
-      <span className="dg1">{maxDegree} </span><img className="vector" src={upVector} />
-      <span className="dg2">{minDegree} </span><img className="vector" src={downVector} />
+      <span className="dg1">{maxDegree} </span><img className="vector" alt="description" src={upVector} />
+      <span className="dg2">{minDegree} </span><img className="vector" alt="description" src={downVector} />
     </div>
   );
 };

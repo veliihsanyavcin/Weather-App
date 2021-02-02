@@ -6,10 +6,10 @@ import './WeatherDetailBlock.css';
 const WeatherDetailBlock = ({ icon, value, label, hasShadow }) => {
   return (
     <div className={`WeatherDetailBlock ${hasShadow ? 'hasShadow' : ''}`}>
-      <img className="detailIcon" src={icon} />  
+      <img className="detailIcon" src={icon} alt="description" />
       <WeatherDetailValue>{value}</WeatherDetailValue>
       <WeatherDetailLabel>{label}</WeatherDetailLabel>
-   </div>
+    </div>
   );
 };
 
